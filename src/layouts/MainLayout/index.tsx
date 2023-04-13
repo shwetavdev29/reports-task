@@ -16,7 +16,6 @@ const Header = ({ handleToggle }: { handleToggle: any }) => {
   return (
     <div>
       <Navbar
-       
         className={`shadow-sm bg-white ${styles.navbarStyles}`}
         bg="light"
         variant="light"
@@ -38,14 +37,13 @@ const Header = ({ handleToggle }: { handleToggle: any }) => {
               {/* </SideNav.Toggle> */}
             </BootstrapNav.Item>
           </BootstrapNav>
-          
-            <div className={`d-flex w-25 flex-row justify-content-end align-items-center ${styles.profileIcon}`}>
-              <div
-              >
-                JD
-              </div>
-              <span className={`ms-2 ${styles.userName}`} style={{color: "#005B96", fontWeight:700}} >John Doe</span>
-            </div>
+
+          <div
+            className={`d-flex w-25 flex-row justify-content-end align-items-center`}
+          >
+            <div className={styles.profileIcon}>JD</div>
+            <span className={`ms-2 ${styles.userName}`}>John Doe</span>
+          </div>
         </Container>
       </Navbar>
     </div>
