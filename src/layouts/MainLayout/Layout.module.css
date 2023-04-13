@@ -1,0 +1,16 @@
+.logoImg {
+  width: 30px;
+  margin: 0px 6px;
+}
+.pagewrapper {
+  width: 100%;
+  font-family: "Roboto";
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.not_allowed{
+    cursor: not-allowed;
+}

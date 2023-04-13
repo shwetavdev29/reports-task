@@ -1,0 +1,143 @@
+.pageTitle {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #011f4b;
+  text-align: left;
+}
+.reportDetail {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #7e8299;
+  text-align: left;
+}
+.reportDetailDropdown,
+.btn.show {
+  text-align: left;
+  border: 0px !important;
+  width: 140px;
+  background: #1bc5bd;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dropmain {
+  display: flex;
+  flex-wrap: wrap;
+  /* width: 50%; */
+  gap: 10px;
+  justify-content: flex-end;
+}
+.dropmain .dropmenu {
+  background: #1bc5bd;
+  border-radius: 5px;
+  border: 0;
+  padding: 8px 0;
+}
+.dropmain .dropmenu .dropitem {
+  color: #fff;
+}
+.dropmain .dropmenu .dropitem:hover {
+  background-color: transparent !important;
+}
+.reportDateSelect {
+  width: 140px;
+  height: 35px;
+}
+.reportDateSelect input,
+.reportDetailDropdown:hover,
+.reportDetailDropdown:focus {
+  background: #68c6bd !important;
+  color: #fff !important;
+  border: 0px;
+}
+.reportDateSelect input:focus {
+  box-shadow: none !important;
+}
+.generateReportBtn {
+  background: #005b96;
+  color: #fff !important;
+  border-radius: 5px;
+  width: 140px;
+  height: 35px;
+  border: 0px;
+}
+.reportCard {
+  background: #f1fafe;
+  border-radius: 10px;
+  width: 100%;
+  border: 0px;
+  padding: 15px;
+  margin-top: 25px;
+}
+
+.reportCard .projectAccordion {
+  margin-top: 30px;
+}
+.reportCard .projectAccordion .projectAccordionItem {
+  border: 0px !important;
+  margin-bottom: 5px !important;
+}
+.reportCard .projectAccordionItem .projectAccordionHeader button {
+  background: #fff !important;
+  border-radius: 10px;
+  box-shadow: none !important;
+
+  padding: 26px 24px !important;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #011f4b;
+  display: flex;
+  justify-content: space-between;
+}
+.reportCard .projectAccordionItem button::after {
+  display: none !important;
+}
+.reportCard .projectAccordionItem .projectAccordionBody {
+  background: #f1fafe !important;
+}
+.reportCard .cardTitle {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #011f4b;
+  text-align: left;
+  margin: 0px !important;
+}
+.reportCard table {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 164.4%;
+  color: #011f4b;
+  text-align: left;
+}
+.reportCard table tr:nth-child(even),
+.reportCard thead {
+  background-color: #fff;
+}
+.reportCard table td,
+.reportCard table th {
+  padding: 5px;
+  border: 0px !important;
+}
+.termstext {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #005b96;
+  margin-top: 30px !important;
+  text-align: left;
+  cursor: pointer;
+}
