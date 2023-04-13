@@ -1,9 +1,9 @@
 import React from "react";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@trendmicro/react-sidenav/dist/react-sidenav.css";
-import { MainLayout } from "./layouts";
+import "./App.css";
 import { Reports } from "./pages";
+import { MainLayout } from "./layouts";
 
 function App() {
   return (

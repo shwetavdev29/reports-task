@@ -20,11 +20,13 @@
   text-align: left;
   border: 0px !important;
   width: 140px;
-  background: #1bc5bd;
+  background-color: #1bc5bd;
   border-radius: 5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
+  height: fit-content;
 }
 .dropmain {
   display: flex;
@@ -34,10 +36,11 @@
   justify-content: flex-end;
 }
 .dropmain .dropmenu {
-  background: #1bc5bd;
+  background-color: #1bc5bd;
   border-radius: 5px;
   border: 0;
   padding: 8px 0;
+  color: white;
 }
 .dropmain .dropmenu .dropitem {
   color: #fff;
@@ -52,7 +55,7 @@
 .reportDateSelect input,
 .reportDetailDropdown:hover,
 .reportDetailDropdown:focus {
-  background: #68c6bd !important;
+  background-color: #68c6bd !important;
   color: #fff !important;
   border: 0px;
 }
@@ -70,7 +73,19 @@
 .reportCard {
   background: #f1fafe;
   border-radius: 10px;
+  max-height: 70vh;
+  min-height: 70vh;
+  overflow: auto;
+  border: 0px;
+  padding: 15px;
+  margin-top: 25px;
+}
+
+.amountCard {
+  background: #f1fafe;
+  border-radius: 10px;
   width: 100%;
+  overflow: auto;
   border: 0px;
   padding: 15px;
   margin-top: 25px;
@@ -103,7 +118,7 @@
 .reportCard .projectAccordionItem .projectAccordionBody {
   background: #f1fafe !important;
 }
-.reportCard .cardTitle {
+.cardTitle {
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -140,4 +155,18 @@
   margin-top: 30px !important;
   text-align: left;
   cursor: pointer;
+}
+.reportCard::-webkit-scrollbar {
+  display: none;
+}
+.chartWrapper {
+  width: 100%;
+  background-color: #fff;
+  height: 80%;
+}
+.donutCard {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

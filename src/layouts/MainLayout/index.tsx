@@ -16,11 +16,8 @@ const Header = ({ handleToggle }: { handleToggle: any }) => {
   return (
     <div>
       <Navbar
-        style={{
-          zIndex: 9999999,
-          // position: "fixed"
-        }}
-        className="shadow-sm bg-white"
+       
+        className={`shadow-sm bg-white ${styles.navbarStyles}`}
         bg="light"
         variant="light"
       >
@@ -41,7 +38,14 @@ const Header = ({ handleToggle }: { handleToggle: any }) => {
               {/* </SideNav.Toggle> */}
             </BootstrapNav.Item>
           </BootstrapNav>
-          <Navbar.Text>Signed in as:</Navbar.Text>
+          
+            <div className={`d-flex w-25 flex-row justify-content-end align-items-center ${styles.profileIcon}`}>
+              <div
+              >
+                JD
+              </div>
+              <span className={`ms-2 ${styles.userName}`} style={{color: "#005B96", fontWeight:700}} >John Doe</span>
+            </div>
         </Container>
       </Navbar>
     </div>
@@ -68,19 +72,39 @@ const Sidebar = ({
         >
           <SideNav.Nav className="mt-4 pt-3 bg-white" defaultSelected="home">
             <NavItem eventKey="home">
-              <img className={styles.not_allowed} src={MENU_ICON1} alt="MENU_ICON1" />
+              <img
+                className={styles.not_allowed}
+                src={MENU_ICON1}
+                alt="MENU_ICON1"
+              />
             </NavItem>
             <NavItem eventKey="home">
-              <img className={styles.not_allowed} src={MENU_ICON2} alt="MENU_ICON2" />
+              <img
+                className={styles.not_allowed}
+                src={MENU_ICON2}
+                alt="MENU_ICON2"
+              />
             </NavItem>
             <NavItem eventKey="home">
-              <img className={styles.not_allowed} src={MENU_ICON3} alt="MENU_ICON3" />
+              <img
+                className={styles.not_allowed}
+                src={MENU_ICON3}
+                alt="MENU_ICON3"
+              />
             </NavItem>
             <NavItem eventKey="home">
-              <img className={styles.pointer} src={MENU_ICON4} alt="MENU_ICON4" />
+              <img
+                className={styles.pointer}
+                src={MENU_ICON4}
+                alt="MENU_ICON4"
+              />
             </NavItem>
             <NavItem eventKey="home">
-              <img className={styles.not_allowed} src={MENU_ICON5} alt="MENU_ICON5" />
+              <img
+                className={styles.not_allowed}
+                src={MENU_ICON5}
+                alt="MENU_ICON5"
+              />
             </NavItem>
           </SideNav.Nav>
         </SideNav>

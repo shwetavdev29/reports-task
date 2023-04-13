@@ -7,10 +7,30 @@
   font-family: "Roboto";
 }
 
-.pointer{
-    cursor: pointer;
+.pointer {
+  cursor: pointer;
 }
 
-.not_allowed{
-    cursor: not-allowed;
+.not_allowed {
+  cursor: not-allowed;
+}
+
+.navbarStyles {
+  z-index: 9999999;
+}
+
+.profileIcon {
+  background-color: #f6ca65;
+  height: 43px;
+  width: 43px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.userName {
+  color: #005b96;
+  font-weight: 700;
 }
