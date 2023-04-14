@@ -41,14 +41,14 @@ interface IChartsData {
   value: number;
 }
 
-interface ITransaction{
+interface ITransaction {
   amount: number;
-created: string;
-gatewayId: string;
-modified: string;
-paymentId: string;
-projectId: string;
-userIds: string[];
+  created: string;
+  gatewayId: string;
+  modified: string;
+  paymentId: string;
+  projectId: string;
+  userIds: string[];
 }
 
 interface IFormatterReportData {

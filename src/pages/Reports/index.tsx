@@ -17,7 +17,14 @@ import {
   getReportApi,
 } from "../../apis";
 import { useLogicReport } from "../../hooks";
-import { IChartsData, IFormatterReportData, IGateWayData, IProjectData, IReportData, ITransaction } from "../../models";
+import {
+  IChartsData,
+  IFormatterReportData,
+  IGateWayData,
+  IProjectData,
+  IReportData,
+  ITransaction,
+} from "../../models";
 import styles from "./Reports.module.css";
 interface Iparams {
   projectId?: string;
@@ -176,46 +183,48 @@ const RenderAccordionSection = (props: IAccordionSection) => {
           defaultActiveKey={["0"]}
           alwaysOpen
         >
-          {formattedReports?.map((formattedReport: IFormatterReportData, index: number) => {
-            return (
-              <Accordion.Item
-                key={index}
-                className={styles.projectAccordionItem}
-                eventKey={`${index}`}
-              >
-                <Accordion.Header className={styles.projectAccordionHeader}>
-                  <span>{getProjectName(formattedReport.projectId)}</span>{" "}
-                  <span>TOTAL: {formattedReport.totalAmount} USD</span>
-                </Accordion.Header>
-                <Accordion.Body className={styles.projectAccordionBody}>
-                  <Table responsive="sm" className="borderless">
-                    <thead>
-                      <tr key={index}>
-                        <th>Date</th>
-                        <th>Gateway 1</th>
-                        <th>Transaction ID</th>
-                        <th>Amount</th>
-                      </tr>
-                    </thead>
-                    <tbody key={index}>
-                      {formattedReport?.transactions?.map(
-                        (transaction: ITransaction, index: number) => {
-                          return (
-                            <tr key={index}>
-                              <td>{transaction.created}</td>
-                              <td>{getGatewayname(transaction.gatewayId)}</td>
-                              <td>{transaction.paymentId}</td>
-                              <td>{transaction.amount} USD</td>
-                            </tr>
-                          );
-                        }
-                      )}
-                    </tbody>
-                  </Table>
-                </Accordion.Body>
-              </Accordion.Item>
-            );
-          })}
+          {formattedReports?.map(
+            (formattedReport: IFormatterReportData, index: number) => {
+              return (
+                <Accordion.Item
+                  key={index}
+                  className={styles.projectAccordionItem}
+                  eventKey={`${index}`}
+                >
+                  <Accordion.Header className={styles.projectAccordionHeader}>
+                    <span>{getProjectName(formattedReport.projectId)}</span>{" "}
+                    <span>TOTAL: {formattedReport.totalAmount} USD</span>
+                  </Accordion.Header>
+                  <Accordion.Body className={styles.projectAccordionBody}>
+                    <Table responsive="sm" className="borderless">
+                      <thead>
+                        <tr key={index}>
+                          <th>Date</th>
+                          <th>Gateway 1</th>
+                          <th>Transaction ID</th>
+                          <th>Amount</th>
+                        </tr>
+                      </thead>
+                      <tbody key={index}>
+                        {formattedReport?.transactions?.map(
+                          (transaction: ITransaction, index: number) => {
+                            return (
+                              <tr key={index}>
+                                <td>{transaction.created}</td>
+                                <td>{getGatewayname(transaction.gatewayId)}</td>
+                                <td>{transaction.paymentId}</td>
+                                <td>{transaction.amount} USD</td>
+                              </tr>
+                            );
+                          }
+                        )}
+                      </tbody>
+                    </Table>
+                  </Accordion.Body>
+                </Accordion.Item>
+              );
+            }
+          )}
         </Accordion>
       </Card>
     </Col>
@@ -252,7 +261,9 @@ const Reports = () => {
     to: "",
     from: "",
   });
-  const [formattedReports, setFormattedReports] = useState<IFormatterReportData[]>([]);
+  const [formattedReports, setFormattedReports] = useState<
+    IFormatterReportData[]
+  >([]);
   const [chartsData, setChartsData] = useState<IChartsData[]>([]);
 
   const { formatReport, formatChartData } = useLogicReport();
@@ -322,39 +333,35 @@ const Reports = () => {
   };
 
   return (
-      <Container fluid className="mt-5">
-        <RenderFilterBar
+    <Container fluid className="mt-5">
+      <RenderFilterBar
+        gatewaysList={gatewaysList}
+        projectsList={projectsList}
+        params={params}
+        setParams={setParams}
+        toggleChart={toggleChart}
+      />
+      <Row className="pe-3">
+        <RenderAccordionSection
+          formattedReports={formattedReports}
           gatewaysList={gatewaysList}
-          projectsList={projectsList}
           params={params}
-          setParams={setParams}
-          toggleChart={toggleChart}
+          projectsList={projectsList}
+          showChart={showChart}
         />
-        <Row className="pe-3">
-          <RenderAccordionSection
-            formattedReports={formattedReports}
-            gatewaysList={gatewaysList}
-            params={params}
-            projectsList={projectsList}
-            showChart={showChart}
-          />
-          {showChart && <RenderChartSection chartsData={chartsData} />}
-        </Row>
-        <Row>
-          <Col xs={12}>
-            <Card className={styles.amountCard}>
-              <h3 className={styles.cardTitle}>
-                TOTAL: {getTotalAmount()} USD
-              </h3>
-            </Card>
-          </Col>
-          <Col xs={12}>
-            <p className={styles.termstext}>
-              Terms&Conditions | Privacy policy
-            </p>
-          </Col>
-        </Row>
-      </Container>
+        {showChart && <RenderChartSection chartsData={chartsData} />}
+      </Row>
+      <Row>
+        <Col xs={12}>
+          <Card className={styles.amountCard}>
+            <h3 className={styles.cardTitle}>TOTAL: {getTotalAmount()} USD</h3>
+          </Card>
+        </Col>
+        <Col xs={12}>
+          <p className={styles.termstext}>Terms&Conditions | Privacy policy</p>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

@@ -1,21 +1,25 @@
 import { axiosInstance } from "../../axiosInstance";
-import { IGateWayData, IProjectData, IReportData, ReportsApiData } from "../../models";
-
+import {
+  IGateWayData,
+  IProjectData,
+  IReportData,
+  ReportsApiData,
+} from "../../models";
 
 const getProjectsListApi = async (
   successCallback?: (data: IProjectData[]) => void,
   errorCallback?: (error: any) => void
 ) => {
-  let response: any = await axiosInstance.get("/projects")
+  let response: any = await axiosInstance.get("/projects");
   const { data } = response;
   const { code } = data;
-  if (code === '200') {
+  if (code === "200") {
     const { data: projects } = data;
     successCallback && successCallback(projects);
     return projects;
   } else {
-    errorCallback && errorCallback([])
-    return []
+    errorCallback && errorCallback([]);
+    return [];
   }
 };
 
@@ -40,17 +44,16 @@ const getReportApi = async (
   successCallback?: (data: IReportData[]) => void,
   errorCallback?: (error: any) => void
 ) => {
-  let response: any = await axiosInstance
-  .post("/report", body)
+  let response: any = await axiosInstance.post("/report", body);
   const { data } = response;
   const { code } = data;
-  if (code === '200') {
+  if (code === "200") {
     const { data: reportData } = data;
     successCallback && successCallback(reportData);
     return reportData;
   } else {
-    errorCallback && errorCallback([])
-    return []
+    errorCallback && errorCallback([]);
+    return [];
   }
 };
 

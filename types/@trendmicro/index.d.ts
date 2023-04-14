@@ -1,1 +1,1 @@
-declare module '@trendmicro/react-sidenav';
+declare module "@trendmicro/react-sidenav";
