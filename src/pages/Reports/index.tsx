@@ -1,5 +1,5 @@
 import moment from "moment";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   Accordion,
   Card,
@@ -41,18 +41,23 @@ const Reports = () => {
   const [chartsData, setChartsData] = useState<any[]>([]);
 
   const { formatReport, formatChartData } = useLogicReport();
+  const fetchProjectsList = useCallback(
+    async () => {
+      let response = await getProjectsListApi();
+      if(Array.isArray(response)){
+        setProjectsList(response);
+      }
+    },
+    [],
+  )
+
   useEffect(() => {
-    getProjectsListApi(
-      data => {
-        setProjectsList(data);
-      },
-      () => {}
-    );
+    fetchProjectsList();
     getGatewaysListApi(
       data => {
         setGatewaysList(data);
       },
-      () => {}
+      () => { }
     );
   }, []);
 
@@ -61,8 +66,8 @@ const Reports = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]);
 
-  const fetchReports = () => {
-    let _params: Iparams = {};
+  const fetchReports = useCallback(async () => {
+    let _params: any = {};
     if (params.projectId !== "") {
       _params["projectId"] = params.projectId;
     }
@@ -75,14 +80,11 @@ const Reports = () => {
     if (params.to !== "") {
       _params["to"] = params.to;
     }
-    getReportApi(
-      _params,
-      data => {
-        setReport(data);
-      },
-      () => {}
-    );
-  };
+    let response = await getReportApi(_params);
+    if(Array.isArray(response)){
+    setReport(response);
+    }
+  }, [params]);
 
   useEffect(() => {
     if (projectsList && report) {
@@ -131,6 +133,7 @@ const Reports = () => {
         </Col>
         <Col xs={8} className={styles.dropmain}>
           <Form.Select
+            data-testid="select-project"
             onChange={event => {
               setParams({ ...params, projectId: event.target.value });
             }}
@@ -142,6 +145,7 @@ const Reports = () => {
             {projectsList?.map(project => {
               return (
                 <option
+                  
                   key={project.projectId}
                   className={styles.dropitem}
                   value={project.projectId}
@@ -199,6 +203,7 @@ const Reports = () => {
             />
           </InputGroup>
           <button
+            data-testid="generate-report-btn"
             onClick={() => setShowChart(!showChart)}
             className={styles.generateReportBtn}
           >
@@ -226,6 +231,7 @@ const Reports = () => {
               {formattedReports.map((formattedReport, index) => {
                 return (
                   <Accordion.Item
+                  key={index}
                     className={styles.projectAccordionItem}
                     eventKey={`${index}`}
                   >
@@ -236,18 +242,18 @@ const Reports = () => {
                     <Accordion.Body className={styles.projectAccordionBody}>
                       <Table responsive="sm" className="borderless">
                         <thead>
-                          <tr>
+                          <tr key={index}>
                             <th>Date</th>
                             <th>Gateway 1</th>
                             <th>Transaction ID</th>
                             <th>Amount</th>
                           </tr>
                         </thead>
-                        <tbody>
+                        <tbody key={index}>
                           {formattedReport?.transactions?.map(
-                            (transaction: any) => {
+                            (transaction: any, index: number) => {
                               return (
-                                <tr>
+                                <tr key={index}>
                                   <td>{transaction.created}</td>
                                   <td>
                                     {getGatewayname(transaction.gatewayId)}
@@ -275,6 +281,7 @@ const Reports = () => {
           >
             <div className={styles.chartWrapper}>
               <DonutChart
+
                 innerRadius={0.5}
                 width={300}
                 height={300}

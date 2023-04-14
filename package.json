@@ -11,7 +11,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@trendmicro/react-sidenav": "^0.5.0",
-    "@types/jest": "^27.5.2",
     "@types/node": "^16.18.23",
     "@types/react": "^18.0.34",
     "@types/react-dom": "^18.0.11",
@@ -31,7 +30,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!my-library-dir)/'",
+    "coverage":"react-scripts test --transformIgnorePatterns 'node_modules/(?!my-library-dir)/' --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -52,7 +52,21 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,ts,tsx}",
+      "!<rootDir>/node_modules/",
+      "!<rootDir>/src/apis/**",
+      "!<rootDir>/src/babel.config.js",
+      "!<rootDir>/src/jest.config.js"
+    ]
+  },
   "devDependencies": {
-    "@types/lodash": "^4.14.192"
+    "@babel/preset-env": "^7.21.4",
+    "@types/jest": "^27.5.2",
+    "@types/lodash": "^4.14.192",
+    "babel-jest": "^29.5.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0"
   }
 }

@@ -2,20 +2,21 @@ import { axiosInstance } from "../../axiosInstance";
 import { IGateWayData, IProjectData, IReportData, ReportsApiData } from "../../models";
 
 
-const getProjectsListApi = (
-  successCallback: (data: IProjectData[]) => void,
-  errorCallback: (error: any) => void
+const getProjectsListApi = async (
+  successCallback?: (data: IProjectData[]) => void,
+  errorCallback?: (error: any) => void
 ) => {
-  axiosInstance
-    .get("/projects")
-    .then((response: any) => {
-      const {data} = response;
-      const {data: projects} = data;
-      successCallback(projects);
-    })
-    .catch((error: any) => {
-      errorCallback(error);
-    });
+  let response: any = await axiosInstance.get("/projects")
+  const { data } = response;
+  const { code } = data;
+  if (code === '200') {
+    const { data: projects } = data;
+    successCallback && successCallback(projects);
+    return projects;
+  } else {
+    errorCallback && errorCallback([])
+    return []
+  }
 };
 
 const getGatewaysListApi = (
@@ -25,8 +26,8 @@ const getGatewaysListApi = (
   axiosInstance
     .get("/gateways")
     .then((response: any) => {
-      const {data} = response;
-      const {data: gateways} = data;
+      const { data } = response;
+      const { data: gateways } = data;
       successCallback(gateways);
     })
     .catch((error: any) => {
@@ -34,21 +35,23 @@ const getGatewaysListApi = (
     });
 };
 
-const getReportApi = (
-  data: ReportsApiData,
-  successCallback: (data: IReportData[]) => void,
-  errorCallback: (error: any) => void
+const getReportApi = async (
+  body: ReportsApiData,
+  successCallback?: (data: IReportData[]) => void,
+  errorCallback?: (error: any) => void
 ) => {
-  axiosInstance
-    .post("/report", data)
-    .then((response: any) => {
-      const {data} = response;
-      const {data: reportData} = data;
-      successCallback(reportData);
-    })
-    .catch((error: any) => {
-      errorCallback(error);
-    });
+  let response: any = await axiosInstance
+  .post("/report", body)
+  const { data } = response;
+  const { code } = data;
+  if (code === '200') {
+    const { data: reportData } = data;
+    successCallback && successCallback(reportData);
+    return reportData;
+  } else {
+    errorCallback && errorCallback([])
+    return []
+  }
 };
 
 export { getProjectsListApi, getGatewaysListApi, getReportApi };

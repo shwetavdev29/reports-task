@@ -62,7 +62,8 @@ const Sidebar = ({
       <div className="d-flex">
         <SideNav
           className="h-100  bg-white reportsidenav"
-          expanded={false}
+          defaultExpanded={false}
+          
           style={{ display: expanded ? "block" : "none", position: "relative" }}
           onSelect={(selected: any) => {
             // Add your code here
