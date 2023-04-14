@@ -1,40 +1,38 @@
-import { IProjectData, IReportData } from "../../models";
+import { IProjectData, IReportData, ITransaction } from "../../models";
 
 const useLogicReport = () => {
 
-  const formatReport = (projectsList: IProjectData[], reportsList: IReportData[]) => {
+  const getFilteredData = (reportsList: IReportData[])=> {
     let obj: any = {};
-    reportsList.map(ele => {
+    reportsList.map((report : IReportData) => {
       let filteredData = reportsList.filter(
-        ele2 => ele2.projectId === ele.projectId
+        (_report: IReportData) => _report.projectId === report.projectId
       );
-      obj[ele.projectId] = filteredData;
+      obj[report.projectId] = filteredData;
       return filteredData;
     });
+    return obj;
+  }
 
-    let finalProjectData = Object.keys(obj).map((element)=> {
+  const formatReport = (projectsList: IProjectData[], reportsList: IReportData[]) => {
+  let filteredDataObj:any = getFilteredData(reportsList)
+
+    let finalProjectData = Object.keys(filteredDataObj).map((element)=> {
         let totalAmount = 0;
-        let projectDetails = projectsList.find((project)=> project.projectId === element);
-        obj[element].map((transaction: any)=> totalAmount += transaction.amount)
-        return {...projectDetails, transactions: obj[element], totalAmount: totalAmount.toFixed(0)}
+        let projectDetails: IProjectData | undefined = projectsList.find((project: IProjectData)=> project.projectId === element);
+        filteredDataObj[element].map((transaction: ITransaction)=> totalAmount += transaction.amount)
+        return {...projectDetails, transactions: filteredDataObj[element], totalAmount: totalAmount.toFixed(0)}
     })
     
     return finalProjectData;
   };
 
   const formatChartData = (projectsList: IProjectData[], reportsList: IReportData[])=> {
-    let obj: any = {};
-    reportsList.map(ele => {
-      let filteredData = reportsList.filter(
-        ele2 => ele2.projectId === ele.projectId
-      );
-      obj[ele.projectId] = filteredData;
-      return filteredData;
-    });
-    let finalChartData = Object.keys(obj).map((element)=> {
+    let filteredDataObj:any = getFilteredData(reportsList)
+    let finalChartData = Object.keys(filteredDataObj).map((element)=> {
         let totalAmount = 0;
         let projectDetails: IProjectData | undefined = projectsList.find((project)=> project.projectId === element);
-        obj[element].map((transaction: any)=> totalAmount += transaction.amount)
+        filteredDataObj[element].map((transaction: ITransaction)=> totalAmount += transaction.amount)
         return {label: !!projectDetails && projectDetails.name , value:  Math.round(totalAmount)};
     })
     return finalChartData

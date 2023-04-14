@@ -1,0 +1,564 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reports it shoud render component 1`] = `
+<DocumentFragment>
+  <div
+    class="mt-5 container-fluid"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-4"
+      >
+        <h3
+          class="pageTitle"
+        >
+           Reports
+        </h3>
+        <p
+          class="reportDetail"
+        >
+          Easily generate a report of your transactions
+        </p>
+      </div>
+      <div
+        class="dropmain col-8"
+      >
+        <select
+          class="reportDetailDropdown form-select"
+          data-testid="select-project"
+        >
+          <option
+            class="dropitem"
+            value=""
+          >
+            All Projects
+          </option>
+        </select>
+        <select
+          class="reportDetailDropdown form-select"
+        >
+          <option
+            class="dropitem"
+            value=""
+          >
+            All Gateways
+          </option>
+        </select>
+        <div
+          class="reportDateSelect input-group"
+        >
+          <input
+            class="form-control"
+            type="date"
+          />
+        </div>
+        <div
+          class="reportDateSelect input-group"
+        >
+          <input
+            class="form-control"
+            type="date"
+          />
+        </div>
+        <button
+          class="generateReportBtn"
+          data-testid="generate-report-btn"
+        >
+          Generate report
+        </button>
+      </div>
+    </div>
+    <div
+      class="pe-3 row"
+    >
+      <div
+        class="col-md-12 col-sm-12"
+      >
+        <div
+          class="reportCard card"
+        >
+          <h3
+            class="cardTitle"
+          >
+            All Projects | All Gateways
+          </h3>
+          <div
+            class="projectAccordion accordion"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-12"
+      >
+        <div
+          class="amountCard card"
+        >
+          <h3
+            class="cardTitle"
+          >
+            TOTAL: 0 USD
+          </h3>
+        </div>
+      </div>
+      <div
+        class="col-12"
+      >
+        <p
+          class="termstext"
+        >
+          Terms&Conditions | Privacy policy
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Reports it should check dropDown  1`] = `
+<DocumentFragment>
+  <div
+    class="mt-5 container-fluid"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-4"
+      >
+        <h3
+          class="pageTitle"
+        >
+           Reports
+        </h3>
+        <p
+          class="reportDetail"
+        >
+          Easily generate a report of your transactions
+        </p>
+      </div>
+      <div
+        class="dropmain col-8"
+      >
+        <select
+          class="reportDetailDropdown form-select"
+          data-testid="select-project"
+        >
+          <option
+            class="dropitem"
+            value=""
+          >
+            All Projects
+          </option>
+        </select>
+        <select
+          class="reportDetailDropdown form-select"
+        >
+          <option
+            class="dropitem"
+            value=""
+          >
+            All Gateways
+          </option>
+        </select>
+        <div
+          class="reportDateSelect input-group"
+        >
+          <input
+            class="form-control"
+            type="date"
+          />
+        </div>
+        <div
+          class="reportDateSelect input-group"
+        >
+          <input
+            class="form-control"
+            type="date"
+          />
+        </div>
+        <button
+          class="generateReportBtn"
+          data-testid="generate-report-btn"
+        >
+          Generate report
+        </button>
+      </div>
+    </div>
+    <div
+      class="pe-3 row"
+    >
+      <div
+        class="col-md-12 col-sm-12"
+      >
+        <div
+          class="reportCard card"
+        >
+          <h3
+            class="cardTitle"
+          >
+            All Projects | All Gateways
+          </h3>
+          <div
+            class="projectAccordion accordion"
+          >
+            <div
+              class="projectAccordionItem accordion-item"
+            >
+              <h2
+                class="projectAccordionHeader accordion-header"
+              >
+                <button
+                  aria-expanded="true"
+                  class="accordion-button"
+                  type="button"
+                >
+                  <span />
+                   
+                  <span>
+                    TOTAL: 328 USD
+                  </span>
+                </button>
+              </h2>
+              <div
+                class="accordion-collapse collapse show"
+              >
+                <div
+                  class="projectAccordionBody accordion-body"
+                >
+                  <div
+                    class="table-responsive-sm"
+                  >
+                    <table
+                      class="borderless table"
+                    >
+                      <thead>
+                        <tr>
+                          <th>
+                            Date
+                          </th>
+                          <th>
+                            Gateway 1
+                          </th>
+                          <th>
+                            Transaction ID
+                          </th>
+                          <th>
+                            Amount
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td />
+                          <td />
+                          <td />
+                          <td>
+                            327.72 USD
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-12"
+      >
+        <div
+          class="amountCard card"
+        >
+          <h3
+            class="cardTitle"
+          >
+            TOTAL: 328 USD
+          </h3>
+        </div>
+      </div>
+      <div
+        class="col-12"
+      >
+        <p
+          class="termstext"
+        >
+          Terms&Conditions | Privacy policy
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Reports it should handle generate report button  1`] = `
+<DocumentFragment>
+  <div
+    class="mt-5 container-fluid"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-4"
+      >
+        <h3
+          class="pageTitle"
+        >
+           Reports
+        </h3>
+        <p
+          class="reportDetail"
+        >
+          Easily generate a report of your transactions
+        </p>
+      </div>
+      <div
+        class="dropmain col-8"
+      >
+        <select
+          class="reportDetailDropdown form-select"
+          data-testid="select-project"
+        >
+          <option
+            class="dropitem"
+            value=""
+          >
+            All Projects
+          </option>
+        </select>
+        <select
+          class="reportDetailDropdown form-select"
+        >
+          <option
+            class="dropitem"
+            value=""
+          >
+            All Gateways
+          </option>
+        </select>
+        <div
+          class="reportDateSelect input-group"
+        >
+          <input
+            class="form-control"
+            type="date"
+          />
+        </div>
+        <div
+          class="reportDateSelect input-group"
+        >
+          <input
+            class="form-control"
+            type="date"
+          />
+        </div>
+        <button
+          class="generateReportBtn"
+          data-testid="generate-report-btn"
+        >
+          Generate report
+        </button>
+      </div>
+    </div>
+    <div
+      class="pe-3 row"
+    >
+      <div
+        class="col-md-6 col-sm-12"
+      >
+        <div
+          class="reportCard card"
+        >
+          <h3
+            class="cardTitle"
+          >
+            All Projects | All Gateways
+          </h3>
+          <div
+            class="projectAccordion accordion"
+          />
+        </div>
+      </div>
+      <div
+        class="reportCard donutCard col-md-6 col-sm-12"
+      >
+        <div
+          class="chartWrapper"
+        >
+          <svg
+            class="donutChart"
+            style="height: 300px; width: 300px;"
+            viewBox="0 0 300 300"
+          >
+            <g
+              class="donutChart-arcs"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-12"
+      >
+        <div
+          class="amountCard card"
+        >
+          <h3
+            class="cardTitle"
+          >
+            TOTAL: 0 USD
+          </h3>
+        </div>
+      </div>
+      <div
+        class="col-12"
+      >
+        <p
+          class="termstext"
+        >
+          Terms&Conditions | Privacy policy
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Reports shoul call the projects api successfully 1`] = `
+<DocumentFragment>
+  <div
+    class="mt-5 container-fluid"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-4"
+      >
+        <h3
+          class="pageTitle"
+        >
+           Reports
+        </h3>
+        <p
+          class="reportDetail"
+        >
+          Easily generate a report of your transactions
+        </p>
+      </div>
+      <div
+        class="dropmain col-8"
+      >
+        <select
+          class="reportDetailDropdown form-select"
+          data-testid="select-project"
+        >
+          <option
+            class="dropitem"
+            value=""
+          >
+            All Projects
+          </option>
+          <option
+            class="dropitem"
+            value="bgYhx"
+          />
+        </select>
+        <select
+          class="reportDetailDropdown form-select"
+        >
+          <option
+            class="dropitem"
+            value=""
+          >
+            All Gateways
+          </option>
+        </select>
+        <div
+          class="reportDateSelect input-group"
+        >
+          <input
+            class="form-control"
+            type="date"
+          />
+        </div>
+        <div
+          class="reportDateSelect input-group"
+        >
+          <input
+            class="form-control"
+            type="date"
+          />
+        </div>
+        <button
+          class="generateReportBtn"
+          data-testid="generate-report-btn"
+        >
+          Generate report
+        </button>
+      </div>
+    </div>
+    <div
+      class="pe-3 row"
+    >
+      <div
+        class="col-md-12 col-sm-12"
+      >
+        <div
+          class="reportCard card"
+        >
+          <h3
+            class="cardTitle"
+          >
+            All Projects | All Gateways
+          </h3>
+          <div
+            class="projectAccordion accordion"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="row"
+    >
+      <div
+        class="col-12"
+      >
+        <div
+          class="amountCard card"
+        >
+          <h3
+            class="cardTitle"
+          >
+            TOTAL: 0 USD
+          </h3>
+        </div>
+      </div>
+      <div
+        class="col-12"
+      >
+        <p
+          class="termstext"
+        >
+          Terms&Conditions | Privacy policy
+        </p>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
